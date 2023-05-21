@@ -22,8 +22,20 @@ pattern_one = #(define-music-function
        $(ly:pitch-transpose note '0) 16 -\markup { \tiny 1 }^\1
      #}))
 
-% la mia intenzione e definire una funzione che generi un gruppo di 4 note, e cosi per tutte le corde
-% 
+% definire una funzione che generi un gruppo di 4 note, le prime 2 a distanza di 3 semitoni, le altre 2 a distanza di 1 semitono
+% la funzione prende in input una nota, la trasforma in una nota, e la usa per generare le note
+pattern_four = #(define-music-function
+  (note)
+  (ly:pitch?)
+  (make-relative (note) note
+  #{
+    $(ly:pitch-transpose note '3) 16 -\markup { \tiny 4 }^\4
+    $(ly:pitch-transpose note '0) 16 -\markup { \tiny 1 }^\1
+    $(ly:pitch-transpose note '1) 16 -\markup { \tiny 2 }^\2
+    $(ly:pitch-transpose note '0) 16 -\markup { \tiny 1 }^\1
+  #}))
+
+%% ma questo non funziona
 
 \score {
   \relative c' {

@@ -1,7 +1,9 @@
 \header {
-  title = "Esercizi scritti meglio"
+  title = "Dominio delle corde - schema 1"
   composer = "Mauro Storti"
 }
+
+#(set-global-staff-size 22)
 
 #(define (naturalize-pitch p)
    (let ((o (ly:pitch-octave p))
@@ -142,6 +144,8 @@ schemaNumeroUno =
   \layout {}
   \midi {}
 }
+
+\pageBreak
 
 \markup "La terza corda"
 \score {
