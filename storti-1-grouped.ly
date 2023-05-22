@@ -48,73 +48,96 @@ naturalizeMusic =
    (ly:music?)
    (naturalize m))
 
+fourOne =
+\relative c' {
+  gis16-\markup { \tiny 4 }^\markup {\bold I}
+  f-\markup { \tiny 1 }
+}
+
+oneTwo = 
+#(define-music-function
+     (posi)
+     (string?)
+   #{
+ fis-\markup { \tiny 1 }^\markup {\bold #posi }
+ g-\markup { \tiny 2 }
+#})
+
+%% Ideally use:
+%% \fourOne \naturalizeMusic \transpose c cis \oneTwo II
+%% \fourOne \naturalizeMusic \transpose c d \oneTwo III
+%% \fourOne \naturalizeMusic \transpose c dis \oneTwo IV
+%% ...
+%% and so on
+%% but need to rework
+
+
 schemaNumeroUno = 
 \relative c' {
     \time 2/8
     \romanStringNumbers
     {
-     {
-     gis16-\markup { \tiny 4 }^\1 }
+     gis16-\markup { \tiny 4 }^\markup {\bold I}
      f-\markup { \tiny 1 }
     }
     {
-     fis-\markup { \tiny 1 }^\2
+     fis-\markup { \tiny 1 }^\markup {\bold II}
      g-\markup { \tiny 2 }
     }
     {
-     gis16-\markup { \tiny 4 }^\1
+     gis16-\markup { \tiny 4 }^\markup {\bold I}
      f-\markup { \tiny 1 }
     }
     {
-     g-\markup { \tiny 1 }^\3
+     g-\markup { \tiny 1 }^\markup {\bold III}
      gis-\markup { \tiny 2 }
     }
     {
-     gis16-\markup { \tiny 4 }^\1
+     gis16-\markup { \tiny 4 }^\markup {\bold I}
      f-\markup { \tiny 1 }
     }
     {
-     gis-\markup { \tiny 1 }^\4
+     gis-\markup { \tiny 1 }^\markup {\bold IV}
      a-\markup { \tiny 2 }
     }
     {
-     gis16-\markup { \tiny 4 }^\1
+     gis16-\markup { \tiny 4 }^\markup {\bold I}
      f-\markup { \tiny 1 }
     }
     {
-     a-\markup { \tiny 1 }^\5
+     a-\markup { \tiny 1 }^\markup {\bold V}
      ais-\markup { \tiny 2 }
     }
     {
-     gis16-\markup { \tiny 4 }^\1
+     gis16-\markup { \tiny 4 }^\markup {\bold I}
      f-\markup { \tiny 1 }
     }
     {
-     ais-\markup { \tiny 1 }^\6
+     ais-\markup { \tiny 1 }^\markup {\bold VI}
      b-\markup { \tiny 2 }
     }
     {
-     gis16-\markup { \tiny 4 }^\1
+     gis16-\markup { \tiny 4 }^\markup {\bold I}
      f-\markup { \tiny 1 }
     }
     {
-     b-\markup { \tiny 1 }^\7
+     b-\markup { \tiny 1 }^\markup {\bold VII}
      c-\markup { \tiny 2 }
     }
     {
-     gis16-\markup { \tiny 4 }^\1
+     gis16-\markup { \tiny 4 }^\markup {\bold I}
      f-\markup { \tiny 1 }
     }
     {
-     c'-\markup { \tiny 1 }^\8
+     c'-\markup { \tiny 1 }^\markup {\bold VIII}
      cis-\markup { \tiny 2 }
     }
     {
-     gis16-\markup { \tiny 4 }^\1
+     gis16-\markup { \tiny 4 }^\markup {\bold I}
      f-\markup { \tiny 1 }
     }
     {
-     cis'-\markup { \tiny 1 }^\9
+     cis'-\markup { \tiny 1 }^\markup {\bold IX}
      d-\markup { \tiny 2 }
     }
 
@@ -156,6 +179,8 @@ schemaNumeroUno =
   \layout {}
   \midi {}
 }
+
+#(set-global-staff-size 23)
 
 \markup "La seconda corda"
 \score {
